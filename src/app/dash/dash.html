@@ -1,0 +1,35 @@
+<!-- <div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="btn-group-vertical">
+             <button type="button" [routerLink]="['/dash/products']" class="btn btn-primary btn-lg btn-block">Products</button>
+             <button type="button" [routerLink]="['/dash/partials2']" class="btn btn-secondary btn-lg btn-block">Partials 2</button>
+            </div>
+        </div>
+   
+    <div class="col-9">
+            <router-outlet></router-outlet>
+    </div>
+</div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item " data-toggle="tooltip" data-placement="right">
+                    <a class="nav-link back" [routerLink]="['/dash/products']">
+                        <span class="nav-link-text">
+                            <b>Products</b>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div>
+

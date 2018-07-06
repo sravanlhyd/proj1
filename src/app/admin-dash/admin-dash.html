@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item " data-toggle="tooltip" data-placement="right">
+                    <a class="nav-link back" [routerLink]="['/admin-dash/addproducts']">
+                        <span class="nav-link-text">
+                            <b>Add Products</b>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div>
+
+<!-- <div class="container">
+        <h3>Uploading products with data</h3>
+        <form #yourForm="ngForm" (ngSubmit)="submit()">
+                <input type="text" [(ngModel)]="Name" name="Name"/>
+                <input type="file" #fileupload name="myFile" (change)="fileChange(fileupload.files)"/>
+                <button type="submit">Submit</button>
+          </form>
+
+</div> -->

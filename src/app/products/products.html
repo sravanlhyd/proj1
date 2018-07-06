@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <input class="form-control form-control-lg" type="text" [(ngModel)]="searchByName"
+    placeholder="Search by name of the products">
+    <br>
+    <button type="button" (click)='sortPrice(products)' class="btn btn-primary btn-lg">Sort By Price</button>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-4" *ngFor="let i = index; let p of products| FilterName:searchByName">
+            <div class="card">
+                <img class="card-img-top" [src]="'http://localhost:7070/api/products/images/'+images[i]" alt="{{p.ProdImgName}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{p.ProdName}}</h5>
+                    <p class="card-text">Cost::{{p.ProdPrice}}</p>
+                    <p class="card-text">Discount:{{p.ProdDiscount}}%</p>
+                    <a (click)="addCart(p)" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

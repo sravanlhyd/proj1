@@ -1,0 +1,39 @@
+<div class="container">
+    <h3 class="text-center">Login Form</h3>
+    <div class="offset-md-4 col-md-4">
+        <form [formGroup]='LoginForm'>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" formControlName='email' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div *ngIf="throwErrors">
+                <span class="text-danger" *ngIf="LoginForm.controls.email.errors?.required">Email Required</span>
+                <span class="text-danger" *ngIf="LoginForm.controls.email.errors?.pattern">Incorrect Email pattern</span>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" formControlName='password' class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div *ngIf="throwErrors">
+                <span class="text-danger" *ngIf="LoginForm.controls.password.errors?.required">Password Required</span>
+                <span class="text-danger" *ngIf="LoginForm.controls.password.errors?.minlength">Min Length is 6</span>
+                <span class="text-danger" *ngIf="LoginForm.controls.password.errors?.maxlength">Max Length is 12</span>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" (click)="login()" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="alert alert-danger" *ngIf="failMsg" role="alert">
+        Please enter correct details
+    </div>
+
+
+    <br>
+    <div class="text-center">
+        <button [routerLink]="['register']" class="btn btn-primary"> User Register</button>
+        <button [routerLink]="['adminRegister']" class="btn btn-primary">Admin Register</button>
+    </div>
+</div>

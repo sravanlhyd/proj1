@@ -1,0 +1,52 @@
+<div class="container">
+    <h3 class="text-center">Admin Registration</h3>
+    <div class="offset-md-4 col-md-4">
+        <form [formGroup]='RegisterForm'>
+            <div class="form-group">
+                <label for="exampleInputEmail1">User Name</label>
+                <input type="text" class="form-control" formControlName='userName' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter user name">
+            </div>
+            <div *ngIf="throwErrors">
+                <span class="text-danger" *ngIf="RegisterForm.controls.userName.errors?.required">Username Required</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="exampleInputPassword1">Email</label>
+                <input type="text" class="form-control" formControlName='email' id="exampleInputPassword1" placeholder="Enter email">
+            </div>
+            <div *ngIf="throwErrors">
+                    <span class="text-danger" *ngIf="RegisterForm.controls.email.errors?.required">Email Required</span>
+                    <span class="text-danger" *ngIf="RegisterForm.controls.email.errors?.pattern">Incorrect Email pattern</span>
+                </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" formControlName='password' id="exampleInputPassword1" placeholder="Enter Password">
+            </div>
+            <div *ngIf="throwErrors">
+                <span class="text-danger" *ngIf="RegisterForm.controls.password.errors?.required">Password Required</span>
+                <span class="text-danger" *ngIf="RegisterForm.controls.password.errors?.minlength">Min Length is 6</span>
+                <span class="text-danger" *ngIf="RegisterForm.controls.password.errors?.maxlength">Max Length is 12</span>
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="exampleInputPassword1">Contact</label>
+                <input type="text" class="form-control" formControlName='contact' id="exampleInputPassword1" placeholder="Enter Contact">
+            </div>
+            <div *ngIf="throwErrors">
+                    <span class="text-danger" *ngIf="RegisterForm.controls.contact.errors?.required">Contact Required</span>
+                    <span class="text-danger" *ngIf="RegisterForm.controls.contact.errors?.pattern">Incorrect Contact</span>
+                </div>
+
+            <button type="submit" (click)="register($event)" class="btn btn-primary">Submit</button>
+        </form>
+        
+    </div>
+    <div class="alert alert-success" *ngIf="successMsg" role="alert">
+            Your details saved successfully.
+        </div>
+        <div class="alert alert-danger" *ngIf="failMsg" role="alert">
+            Please enter correct details
+        </div>
+</div>
